@@ -1,6 +1,6 @@
 import { Product } from "@prisma/client";
 
-export const calculateProductTotalPrace = (product: Product) => {
+export const calculateProductTotalPrice = (product: Product) => {
   if (product.discountPercentage === 0) {
     return Number(product.price);
   }
