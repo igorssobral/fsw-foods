@@ -2,7 +2,7 @@
 
 import { Prisma } from "@prisma/client";
 import Image from "next/image";
-import { calculateProductTotalPrace } from "../_helpers/price";
+import { calculateProductTotalPrice } from "../_helpers/price";
 import { ArrowDownIcon } from "lucide-react";
 import Link from "next/link";
 
@@ -46,7 +46,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
               {Intl.NumberFormat("pt-BR", {
                 currency: "BRL",
                 minimumFractionDigits: 2,
-              }).format(calculateProductTotalPrace(product))}
+              }).format(calculateProductTotalPrice(product))}
             </h3>
             {product.discountPercentage > 0 && (
               <span className="text-xs line-through text-muted-foreground">
