@@ -1,6 +1,6 @@
 import { db } from "@/app/_lib/prisma";
 import { notFound } from "next/navigation";
-import RestaurantImage from "../_components/restaurant-image";
+import RestaurantImage from "./_components/restaurant-image";
 import Image from "next/image";
 import { StarIcon } from "lucide-react";
 import DeliveryInfo from "@/app/components/delivery-info";
