@@ -1,6 +1,6 @@
 import { db } from "@/app/_lib/prisma";
-import Header from "@/app/components/header";
-import RestaurantItem from "@/app/components/restauran-item";
+import Header from "@/app/_components/header";
+import RestaurantItem from "@/app/_components/restauran-item";
 
 const RecommendedRestaurants = async () => {
   const restaurants = await db.restaurant.findMany({});

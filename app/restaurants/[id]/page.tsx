@@ -3,8 +3,8 @@ import { notFound } from "next/navigation";
 import RestaurantImage from "./_components/restaurant-image";
 import Image from "next/image";
 import { StarIcon } from "lucide-react";
-import DeliveryInfo from "@/app/components/delivery-info";
-import ProductList from "@/app/components/product-list";
+import DeliveryInfo from "@/app/_components/delivery-info";
+import ProductList from "@/app/_components/product-list";
 
 interface RestaurantPageProps {
   params: {

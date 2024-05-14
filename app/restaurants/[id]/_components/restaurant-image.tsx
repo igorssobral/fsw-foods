@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/app/components/ui/button";
+import { Button } from "@/app/_components/ui/button";
 import { Restaurant } from "@prisma/client";
 import { ChevronLeftIcon, HeartIcon } from "lucide-react";
 import Image from "next/image";
