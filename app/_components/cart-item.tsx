@@ -50,7 +50,7 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
             )}
           </div>
 
-          <div className="flex gap-2 items-center text-center">
+          <div className="flex items-center text-center">
             <Button
               size="icon"
               variant="ghost"
@@ -61,12 +61,13 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
                 onClick={handleDecreaseProductQuantity}
               />
             </Button>
-            <span className="w-4 text-sm">{cartProduct.quantity}</span>
-            <Button size="icon" className="w-7 h-7">
-              <ChevronRightIcon
-                size={16}
-                onClick={handleIncreaseProductQuantity}
-              />
+            <p className="w-8 text-sm block">{cartProduct.quantity}</p>
+            <Button
+              size="icon"
+              className="w-7 h-7"
+              onClick={handleIncreaseProductQuantity}
+            >
+              <ChevronRightIcon size={16} />
             </Button>
           </div>
         </div>

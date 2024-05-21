@@ -20,6 +20,16 @@ import {
   SheetTitle,
 } from "@/app/_components/ui/sheet";
 import Cart from "@/app/_components/cart";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/app/_components/ui/alert-dialog";
 
 interface ProductDetailProps {
   product: Prisma.ProductGetPayload<{
@@ -40,12 +50,28 @@ const ProductDetails = ({
 }: ProductDetailProps) => {
   const [quantity, setQuantity] = useState(1);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isConfirmationDialogOpen, setIsConfirmationDialogOpen] =
+    useState(false);
+
   const { addProductToCard, products } = useContext(CartContext);
-  console.log("🚀 ~ products:", products);
+
+  const addToCart = ({ emptyCart = false }: { emptyCart?: boolean }) => {
+    addProductToCard({ product, quantity, emptyCart });
+    setIsCartOpen(true);
+  };
 
   const handleAddToCartClick = () => {
-    addProductToCard(product, quantity);
-    setIsCartOpen(true);
+    const hasDifferentRestaurantProduct = products.some(
+      (cartProduct) => cartProduct.restaurantId !== product.restaurantId,
+    );
+
+    if (hasDifferentRestaurantProduct) {
+      return setIsConfirmationDialogOpen(true);
+    }
+
+    addToCart({
+      emptyCart: true,
+    });
   };
 
   const handleIncreaseQuantityClick = () =>
@@ -138,6 +164,27 @@ const ProductDetails = ({
           <Cart />
         </SheetContent>
       </Sheet>
+
+      <AlertDialog
+        open={isConfirmationDialogOpen}
+        onOpenChange={setIsConfirmationDialogOpen}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Sua sacola não está vazia</AlertDialogTitle>
+            <AlertDialogDescription>
+              Deseja mesmo adicionar esse produto? Isso excluirá produtos que
+              não pertença a esse restaurante.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancelar</AlertDialogCancel>
+            <AlertDialogAction onClick={() => addToCart({ emptyCart: true })}>
+              Esvaziar sacola e adicionar
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </>
   );
 };
