@@ -88,7 +88,7 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
     return setProducts((prev) =>
       prev.map((cartProduct) => {
         if (cartProduct.id === productId) {
-          if (cartProduct.quantity == 1) {
+          if (cartProduct.quantity === 1) {
             return cartProduct;
           }
           return {
