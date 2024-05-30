@@ -116,8 +116,10 @@ const Header = () => {
                   variant={"ghost"}
                   className="w-full justify-start space-x-3 text-sm font-normal rounded-full"
                 >
-                  <ScrollTextIcon />
-                  <span className="block">Meus Pedidos</span>
+                  <Link href="/my-orders">
+                    <ScrollTextIcon />
+                    <span className="block">Meus Pedidos</span>
+                  </Link>
                 </Button>
 
                 <Button
