@@ -17,7 +17,7 @@ interface ProductItemProps {
       };
     };
   }>;
-  className: string;
+  className?: string;
 }
 
 const ProductItem = ({ product, className }: ProductItemProps) => {
