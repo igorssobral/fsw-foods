@@ -9,28 +9,29 @@ import Link from "next/link";
 import { cn } from "../_lib/utils";
 import { toggleFavoriteRestaurant } from "../_actions/restaurant";
 import { toast } from "sonner";
+import { useSession } from "next-auth/react";
 
 interface RestaurantItemProps {
-  userId?: string;
   restaurant: Restaurant;
   className?: string;
   userFavoriteRestaurant?: UserFavoriteRestaurant[];
 }
 
 const RestaurantItem = ({
-  userId,
   restaurant,
   className,
   userFavoriteRestaurant,
 }: RestaurantItemProps) => {
+  const { data } = useSession();
+
   const isFavorite = userFavoriteRestaurant?.some(
     (fav) => fav.restaurantId === restaurant.id,
   );
 
   const handleFavoriteClick = async () => {
-    if (!userId) return;
+    if (!data?.user.id) return;
     try {
-      await toggleFavoriteRestaurant(userId, restaurant.id);
+      await toggleFavoriteRestaurant(data?.user.id, restaurant.id);
 
       toast.success(
         isFavorite
@@ -60,7 +61,7 @@ const RestaurantItem = ({
             <span className="font-semibold text-xs">5.0</span>
           </div>
 
-          {userId && (
+          {data?.user.id && (
             <Button
               size="icon"
               className={`absolute top-2 right-2 bg-zinc-800/80 rounded-full h-7 w-7 ${isFavorite && "bg-primary"}`}
