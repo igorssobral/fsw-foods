@@ -66,7 +66,7 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
     },
   });
   return (
-    <div>
+    <>
       <RestaurantImage
         restaurant={restaurant}
         userFavoriteRestaurants={userFavoriteRestaurants}
@@ -94,7 +94,7 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
         <DeliveryInfo restaurant={restaurant} />
       </div>
 
-      <div className="flex overflow-x-scroll gap-4 mt-3 px-5 [&::-webkit-scrollbar]:hidden">
+      <div className="flex justify-center overflow-x-scroll gap-4 mt-3 px-5 [&::-webkit-scrollbar]:hidden">
         {restaurant.categories.map((category) => (
           <div
             key={category.id}
@@ -119,7 +119,7 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
       ))}
 
       <CartBanner restaurant={restaurant} />
-    </div>
+    </>
   );
 };
 
