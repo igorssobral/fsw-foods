@@ -106,8 +106,10 @@ const Header = () => {
               variant={"ghost"}
               className="w-full justify-start space-x-3 text-sm font-normal rounded-full"
             >
-              <HomeIcon />
-              <span className="block">Início</span>
+              <Link href="/">
+                <HomeIcon />
+                <span className="block">Início</span>
+              </Link>
             </Button>
 
             {data?.user && (
