@@ -50,7 +50,7 @@ const Home = async () => {
   const { products, burguersCategory, pizzasCategory } = await fetch();
 
   return (
-    <div>
+    <>
       <Header />
       <div className="px-5 pt-6">
         <Search />
@@ -67,7 +67,7 @@ const Home = async () => {
           />
         </Link>
       </div>
-      <div className="space-y-4 py-6 px-4">
+      <div className="space-y-4 py-6">
         <div className="flex items-center justify-between px-5">
           <h2 className="font-semibold">Pedidos Recomendados</h2>
 
@@ -108,7 +108,7 @@ const Home = async () => {
         </div>
         <RestaurantList />
       </div>
-    </div>
+    </>
   );
 };
 export default Home;

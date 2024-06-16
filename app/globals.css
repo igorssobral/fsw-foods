@@ -54,6 +54,6 @@
   }
 
   body {
-    @apply text-foreground antialiased flex flex-col items-center;
+    @apply text-foreground antialiased lg:flex lg:flex-col lg:items-center;
   }
 }

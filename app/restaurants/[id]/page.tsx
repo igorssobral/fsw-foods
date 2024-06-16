@@ -94,7 +94,7 @@ const RestaurantPage = async ({ params: { id } }: RestaurantPageProps) => {
         <DeliveryInfo restaurant={restaurant} />
       </div>
 
-      <div className="flex justify-center overflow-x-scroll gap-4 mt-3 px-5 [&::-webkit-scrollbar]:hidden">
+      <div className="flex lg:justify-center overflow-x-scroll gap-4 mt-3 px-5 [&::-webkit-scrollbar]:hidden">
         {restaurant.categories.map((category) => (
           <div
             key={category.id}
