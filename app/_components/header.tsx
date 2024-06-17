@@ -105,7 +105,8 @@ const Header = () => {
             <Button
               variant={"ghost"}
               className="w-full justify-start space-x-3 text-sm font-normal rounded-full"
-            >
+              asChild
+              >
               <Link href="/">
                 <HomeIcon />
                 <span className="block">Início</span>
