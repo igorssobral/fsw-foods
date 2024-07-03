@@ -59,11 +59,17 @@ const Home = async () => {
         <CategoryList />
       </div>
 
-      <div className="pt-6">
+      <div className="pt-6 flex flex-col gap-5 lg:flex-row">
         <Link href={`categories/${pizzasCategory?.id}/products`}>
           <PromoBanner
             src="/promo-banner-01.png"
             alt="Até 30% de desconto em pizzas"
+          />
+        </Link>
+        <Link href={`/categories/${burguersCategory?.id}/products`}>
+          <PromoBanner
+            src="/promo-banner-02.png"
+            alt="A partir de R$17,90 em lanches"
           />
         </Link>
       </div>
@@ -83,11 +89,18 @@ const Home = async () => {
         </div>
         <ProductList products={products} />
       </div>
-      <div className="pt-6">
+      <div className="pt-6 flex flex-col gap-5 lg:flex-row">
         <Link href={`/categories/${burguersCategory?.id}/products`}>
           <PromoBanner
             src="/promo-banner-02.png"
             alt="A partir de R$17,90 em lanches"
+          />
+        </Link>
+
+        <Link href={`categories/${pizzasCategory?.id}/products`}>
+          <PromoBanner
+            src="/promo-banner-01.png"
+            alt="Até 30% de desconto em pizzas"
           />
         </Link>
       </div>
